@@ -3,6 +3,11 @@ pipeline {
     label 'jdk8'
   }
   stages {
+    stage('Publish Event') {
+            steps {
+                publishEvent simpleEvent('sergeiEvent')
+            }
+    }    
     stage('Say Hello') {
       steps {
         echo "Hello ${params.Name}!"
