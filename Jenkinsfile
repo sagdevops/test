@@ -2,7 +2,15 @@ pipeline {
   agent {
     label 'jdk8'
   }
+  libraries {
+    lib("SharedLibs")
+  }  
   stages {
+    stage('Shared Lib') {
+         steps {
+             helloWorld("Jenkins")
+         }
+      }
     stage('Publish Event') {
             steps {
                 publishEvent simpleEvent('sergeiEvent')
