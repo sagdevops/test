@@ -32,15 +32,16 @@ pipeline {
             sleep(time: 20, unit: 'SECONDS')
           }
         }
-      }
-    }
-  }
-  stage('Checkpoint') {
+        stage('Checkpoint') {
          agent none
          steps {
             checkpoint 'Checkpoint'
          }
-      }  
+        }  
+      }
+    }
+  }
+
   environment {
     MY_NAME = 'Mary'
     TEST_USER = credentials('test-user')
